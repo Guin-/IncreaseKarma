@@ -1,6 +1,9 @@
-from django.conf.urls import include, url
-import views
+from django.conf.urls import patterns,include, url
+from Home.views import *
 
-urlpatterns = [
-    url(r'^$', views.index, name='index')
-]
+urlpatterns = patterns('',
+
+    # Main Page
+    url(r'^$', main_page),
+
+)
