@@ -1,5 +1,6 @@
 from django.shortcuts import render, render_to_response
 from django.contrib.auth import authenticate, login, logout
+from Home.forms import UserForm
 from Home.models import User
 
 
@@ -17,14 +18,14 @@ def main_logged_in(request):
     if user is not None:
         if user.is_active:
             login(request, user)
-            HttpRedirect
+            return HttpResponseRedirect('index.html')
             #Redirect to a success page.
         else:
             # Return a 'disabled account' error message
-            ...
+            pass
     else:
         # Return an 'invalid login' error message.
-        ...
+        pass
     return render(request, 'registration/login.html')
 
 def logout_view(request):
